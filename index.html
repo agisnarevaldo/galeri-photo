@@ -27,32 +27,27 @@
         let text = ['See', 'Severanca', 'Ted Lasso', 'For All Mankind', 'Black Bird'];
 
         function prev() {
-            nomor = nomor - 1;
-            if (nomor < 1) {
-                nomor = 5
-            }
-            let lokasi = 'img/' + nomor + '.webp'
-            document.getElementById('gambar').src = lokasi;
-            title.innerText = text[nomor-1];
-            return false;
+            nomor--;
+            if (nomor < 1) nomor = 5;
+            ganti_gambar(nomor);
         }
         
         function ganti(index) {
-            nomor = 1;
-            let lokasi = 'img/' + index + '.webp';
-            document.getElementById('gambar').src = lokasi;
-            title.innerText = text[index-1];
-            return false;
+            nomor = index;
+            ganti_gambar(index);
         }
 
         function next() {
-            nomor = nomor + 1;
-            if (nomor > 5) {
-                nomor = 1
-            }
-            let lokasi = 'img/' + nomor + '.webp';
+            nomor++;
+            if (nomor > 5) nomor = 1;
+            ganti_gambar(nomor);
+        }
+
+        // Refactor Fungsi ganti gambar dan text Judul
+        function ganti_gambar(index) {
+            let lokasi = 'img/' + index + '.webp';
             document.getElementById('gambar').src = lokasi;
-            title.innerText = text[nomor-1]
+            title.innerText = text[index - 1];
             return false;
         }
         </script>
