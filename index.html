@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Photo</title>
+</head>
+<body>
+    <img src="img/1.webp" id="gambar" width="400px" alt="">
+    <br>
+
+    <div id="title">See</div>
+    <br>
+
+    <a href="#" onclick="prev()">Previous</a>
+    <a href="#" onclick="ganti(1)">1</a>
+    <a href="#" onclick="ganti(2)">2</a>
+    <a href="#" onclick="ganti(3)">3</a>
+    <a href="#" onclick="ganti(4)">4</a>
+    <a href="#" onclick="ganti(5)">5</a>
+    <a href="#" onclick="next()">Next</a>
+
+    <script>
+        let nomor = 1;
+        let title = document.getElementById('title');
+        let text = ['See', 'Severanca', 'Ted Lasso', 'For All Mankind', 'Black Bird'];
+
+        function prev() {
+            nomor = nomor - 1;
+            if (nomor < 1) {
+                nomor = 5
+            }
+            let lokasi = 'img/' + nomor + '.webp'
+            document.getElementById('gambar').src = lokasi;
+            title.innerText = text[nomor-1];
+            return false;
+        }
+        
+        function ganti(index) {
+            nomor = 1;
+            let lokasi = 'img/' + index + '.webp';
+            document.getElementById('gambar').src = lokasi;
+            title.innerText = text[index-1];
+            return false;
+        }
+
+        function next() {
+            nomor = nomor + 1;
+            if (nomor > 5) {
+                nomor = 1
+            }
+            let lokasi = 'img/' + nomor + '.webp';
+            document.getElementById('gambar').src = lokasi;
+            title.innerText = text[nomor-1]
+            return false;
+        }
+        </script>
+</body>
+</html>
